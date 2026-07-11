@@ -75,8 +75,6 @@ public/images/            # 真实设备图片（50+ 张，来自旧站素材库
 
 ## 部署
 
-项目已推送到 GitHub：https://github.com/Kyle-jingwen/shredders-machine-web-design
-
 推荐使用 **Vercel** 部署（免费、Next.js 原生支持、自动 HTTPS）：
 
 1. 在 Vercel 中 import 此仓库
