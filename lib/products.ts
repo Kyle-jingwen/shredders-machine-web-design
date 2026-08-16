@@ -324,7 +324,7 @@ export const products: Product[] = [
       { label: "Feed", value: "Hand-fed" },
     ],
     imageSrc: {
-      cover: "/images/products/glass-crusher.jpg",
+      cover: "/images/products/glass-crusher.png",
       gallery: ["/images/products/glass-crusher.png"],
     },
   },
