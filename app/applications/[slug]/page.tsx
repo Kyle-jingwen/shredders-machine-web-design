@@ -38,7 +38,7 @@ export default async function ApplicationDetailPage({
   return (
     <>
       <PageHeader
-        eyebrow="Application"
+        eyebrow={application.group === "separation" ? "Separation" : "Application"}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Applications", href: "/applications" },
@@ -51,7 +51,7 @@ export default async function ApplicationDetailPage({
       <section className="container-x py-14 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <Reveal>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink-800">
               <Image
                 src={application.imageSrc.cover}
                 alt={application.name}
@@ -62,17 +62,17 @@ export default async function ApplicationDetailPage({
               />
             </div>
             {application.imageSrc.gallery.length > 0 && (
-              <div className="mt-4 grid grid-cols-3 gap-3">
-                {application.imageSrc.gallery.slice(0, 6).map((g, i) => (
+              <div className="mt-4 grid grid-cols-2 gap-3">
+                {application.imageSrc.gallery.map((g, i) => (
                   <div
                     key={i}
-                    className="relative aspect-square overflow-hidden rounded-xl bg-ink-800"
+                    className="relative aspect-[4/3] overflow-hidden rounded-xl bg-ink-800"
                   >
                     <Image
                       src={g}
                       alt={`${application.name} — detail ${i + 1}`}
                       fill
-                      sizes="33vw"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-cover"
                     />
                   </div>
@@ -89,23 +89,6 @@ export default async function ApplicationDetailPage({
                 </p>
               ))}
             </div>
-
-            <div className="mt-8">
-              <h3 className="font-display text-lg font-bold text-white">
-                Process flow
-              </h3>
-              <ol className="mt-4 space-y-3">
-                {application.process.map((step, i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-500">
-                      {i + 1}
-                    </span>
-                    <span className="pt-0.5 text-sm text-steel-300">{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
             <div className="mt-8">
               <Link href="/contact" className="btn-primary">
                 Discuss your project
@@ -113,6 +96,79 @@ export default async function ApplicationDetailPage({
             </div>
           </Reveal>
         </div>
+
+        {application.process.length > 0 && (
+          <div className="mt-16">
+            <h2 className="font-display text-2xl font-bold text-white">
+              Process flow
+            </h2>
+            <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {application.process.map((step, i) => (
+                <li key={i} className="surface flex gap-3 p-5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-500">
+                    {i + 1}
+                  </span>
+                  <span className="pt-0.5 text-sm leading-relaxed text-steel-300">
+                    {step}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
+        {application.parts && application.parts.length > 0 && (
+          <div className="mt-16">
+            <h2 className="font-display text-2xl font-bold text-white">
+              {application.group === "separation" ? "Typical feedstocks" : "Line equipment"}
+            </h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {application.parts.map((part) => (
+                <figure
+                  key={part.name}
+                  className="overflow-hidden rounded-2xl border border-ink-700 bg-ink-800"
+                >
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={part.image}
+                      alt={part.name}
+                      fill
+                      sizes="25vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="border-t border-ink-700 px-3 py-2.5 text-sm text-steel-300">
+                    {part.name}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {application.figures && application.figures.length > 0 && (
+          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            {application.figures.map((fig) => (
+              <figure
+                key={fig.src}
+                className="overflow-hidden rounded-2xl border border-ink-700 bg-ink-800"
+              >
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={fig.src}
+                    alt={fig.caption}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-contain p-3"
+                  />
+                </div>
+                <figcaption className="border-t border-ink-700 px-4 py-3 text-sm text-steel-400">
+                  {fig.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* 推荐设备 */}

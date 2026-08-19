@@ -1,6 +1,6 @@
 /**
  * 主导航结构。
- * Products 9 项 / Applications 8 项 顺序与旧站截图完全一致。
+ * Products 10 项 / Applications 8 项 顺序与旧站一致（含 PUR Compactor）。
  * 带 children 的项在桌面端显示为下拉菜单。
  */
 export type NavItem = {
@@ -60,6 +60,11 @@ export const mainNav: NavItem[] = [
         href: "/products/eps-compactor",
         desc: "Compact expanded polystyrene foam for reuse",
       },
+      {
+        label: "PUR (Polyurethane) Compactor",
+        href: "/products/pur-compactor",
+        desc: "Compact PUR foam waste for recycling",
+      },
     ],
   },
   {
@@ -74,17 +79,17 @@ export const mainNav: NavItem[] = [
       {
         label: "Food/Organic/Kitchen Waste Shredding & Dewatering System",
         href: "/applications/food-waste-shredding-dewatering",
-        desc: "Integrated shredding & dewatering line",
+        desc: "Solid–liquid split for biogas & compost",
       },
       {
         label: "Large Capacity Food Waste Composting System",
         href: "/applications/large-capacity-food-waste-composting",
-        desc: "High-volume aerobic fermentation system",
+        desc: "Bag breaker, windrow turner & trommel",
       },
       {
         label: "Food Waste Depackaging Machine",
         href: "/applications/food-waste-depackaging",
-        desc: "Separate packaging from food & liquid",
+        desc: "Organics vs packaging — 90–97% purity",
       },
       {
         label: "Medical Waste",

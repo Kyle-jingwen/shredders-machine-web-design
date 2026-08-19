@@ -1,11 +1,14 @@
 /**
- * 应用场景数据源（阶段3真实内容版）。
- * imageSrc 字段对应 /public/images/applications/ 下的真实图片。
+ * 应用场景数据源。
+ * 对应旧站 Application + Separation 共 8 页。
  */
+
+export type ApplicationGroup = "separation" | "application";
 
 export type Application = {
   slug: string;
   name: string;
+  group: ApplicationGroup;
   tagline: string;
   description: string[];
   relatedProducts: string[];
@@ -14,18 +17,37 @@ export type Application = {
     cover: string;
     gallery: string[];
   };
+  parts?: { name: string; image: string }[];
+  figures?: { src: string; caption: string }[];
 };
 
+export const applicationGroups: { id: ApplicationGroup; label: string; intro: string }[] =
+  [
+    {
+      id: "separation",
+      label: "Separation",
+      intro:
+        "Solid–liquid separation and depackaging for food, kitchen and organic waste — preparing a clean substrate for digestion, composting or RDF.",
+    },
+    {
+      id: "application",
+      label: "Applications",
+      intro:
+        "Complete lines for composting, medical, pulp & paper, slaughterhouse and municipal waste — shredders, presses, conveyors and custom systems.",
+    },
+  ];
+
 export const applications: Application[] = [
-  // ① Convert Food/Kitchen/Organic Waste To Fertilizer
   {
     slug: "organic-food-waste",
     name: "Convert Food/Kitchen/Organic Waste To Fertilizer",
+    group: "application",
     tagline:
-      "Pre-treatment system plus fermenter to convert waste into fertilizer within 24 hours.",
+      "Pre-treatment system plus aerobic fermenter to convert waste into fertilizer within 24 hours.",
     description: [
-      "TIMO provides a reliable food/organic/kitchen waste recycling system for composting applications. The system includes a waste composting pre-treatment system and a fermenter. The pre-treatment system includes a bin-lifter, manual sorting platforms, industrial shredders, dewatering machine and discharge auger conveyor.",
-      "The industrial shredder & dewatering squeezer combo machine integrates a industrial shredder with a dewatering squeezer in one machine. The shredder on top cuts waste to ~36×12 mm, then the dewatering squeezer squeezes out liquid through a 2 mm stainless steel screen. The shredded, dewatered organic waste is then conveyed to the fermentation tank, where oil heating converts it to organic fertilizer within 24 hours.",
+      "Food, kitchen or organic waste — including pieces still in packaging — must be shredded to prepare an optimal substrate for fermentation. TIMO provides a complete recycling system: a pre-treatment line plus a compostor (aerobic fermentation machine).",
+      "The pre-treatment line includes a 120L/240L bin-lifter, a manual sorting table (2–4 operators), an integrated industrial shredder & dewatering screw press, and a discharge auger conveyor. The shredder uses two parallel counter-rotating cutters at low speed and high torque to cut, shear and tear waste into strips or chips. The screw press underneath squeezes liquid through a 2 mm stainless-steel screen. Incoming moisture is typically 30–80%; after pressing it is about 20–40% — you cannot squeeze water out by hand.",
+      "Shredded, dewatered solids are conveyed to the compostor. Oil heating holds tank temperature so the waste becomes fertilizer in 24 hours. Composter capacity can be customized to the site.",
     ],
     relatedProducts: [
       "shredder-dewatering-combo",
@@ -33,29 +55,44 @@ export const applications: Application[] = [
       "dewatering-screw-press",
     ],
     process: [
-      "120L / 240L bin-lifter tips waste onto manual sorting table",
-      "Operators sort out foreign objects (metal, plastic bags)",
-      "Integrated shredder & dewatering squeezer shreds waste to ~36 mm and squeezes out liquid",
-      "Auger conveyor feeds shredded & dewatered waste to aerobic fermenter",
-      "Fermenter converts organic waste to organic fertilizer within 24 hours",
+      "Bin-lifter loads a 120L or 240L bin onto the manual sorting table",
+      "Waste travels on a moving belt; operators pick out metal, plastic bags and other foreign objects",
+      "Integrated shredder cuts mixed waste to about 36×12 mm; the screw press underneath squeezes liquid through a 2 mm screen",
+      "Liquid drains from the trough (pipe or pump); solids discharge between the cone and press shell",
+      "Crosswise then side auger conveyors feed solids to the compostor for 24-hour aerobic fermentation",
     ],
     imageSrc: {
       cover: "/images/applications/food-organic-cover.jpg",
       gallery: [
-        "/images/hero/composting-banner.jpg",
-        "/images/products/composter-xy5000.png",
+        "/images/applications/convert-food-waste-to-fertilizer.jpg",
+        "/images/applications/fertilizer-after-composting.png",
+        "/images/applications/part-after-processing.jpg",
       ],
     },
+    parts: [
+      { name: "120L / 240L Bin-Lifter", image: "/images/applications/part-bin-lifter.jpg" },
+      { name: "Manual Sorting Table", image: "/images/applications/part-sorting-table.jpg" },
+      { name: "Integrated Shredder & Press", image: "/images/products/combo-aio-main.png" },
+      { name: "Aerobic Fermenter", image: "/images/products/composter-xy5000.png" },
+    ],
+    figures: [
+      {
+        src: "/images/applications/organic-food-waste-recycling-system.png",
+        caption:
+          "Layout: 1. Bin-lifter → 2. Sorting table → 3. Shredder → 4. Dewatering screw press → 5. Auger conveyor → 6. Composter",
+      },
+    ],
   },
-  // ② Food/Organic/Kitchen Waste Shredding & Dewatering System
   {
     slug: "food-waste-shredding-dewatering",
     name: "Food/Organic/Kitchen Waste Shredding & Dewatering System",
+    group: "separation",
     tagline:
-      "Integrated shredding and dewatering line for solid-liquid separation of food and organic waste.",
+      "Shred, depack and dewater food waste — solid–liquid separation for biogas, compost or RDF.",
     description: [
-      "TIMO's integrated shredder and dewatering squeezer system handles food, organic and kitchen waste in a continuous, fully automatic process — shredding waste into uniform strips and immediately squeezing out liquid to reduce weight and volume.",
-      "The system can be configured as a standalone shredding line or combined with bin-lifters, conveyors and manual sorting platforms for a complete pre-treatment solution ahead of composting, anaerobic digestion or RDF production.",
+      "Food, kitchen and organic waste sent to landfill emit greenhouse gas as they decompose. TIMO offers a recycle line for expired packaged food, fruit & vegetable waste mixed with plastic, supermarket leftovers and similar streams.",
+      "Working process: a two-shaft shredder crushes collected waste → a paddle depackaging machine separates organic from inorganic and grinds organics to pulp → inorganic (bags, film, cardboard) can go to RDF → a dewatering screw press splits the pulp into solid organics and liquid. Liquid can be heat-sterilized, fermented and refined into biofuel or biogas; residue after refining can be used for insect farming.",
+      "Single or twin-screw presses are configured to the material — continuous or interrupted flight, hydraulic or pneumatic cone. The integrated shredder + press first increases surface area, then squeezes liquid through the screen against a back-pressure cone. Horizontal shaft depackagers at wet AD plants typically recover about 90% of the feed at ~97% purity (excluding glass).",
     ],
     relatedProducts: [
       "shredder-dewatering-combo",
@@ -63,179 +100,232 @@ export const applications: Application[] = [
       "industrial-shredder",
     ],
     process: [
-      "Feed food / organic / kitchen waste via hopper or bin-lifter",
-      "Low-speed high-torque shredder reduces waste to uniform strips",
-      "Dewatering screw press squeezes out liquid continuously",
-      "Dry fraction discharged for composting or anaerobic digestion",
-      "Liquid fraction collected for biogas or disposal",
+      "Collected food / kitchen / organic waste is crushed by a two-shaft shredder",
+      "Paddle depackager separates organic from inorganic and grinds organics to pulp / mash",
+      "Inorganic fraction (plastic, film, cardboard) discharged as RDF feedstock",
+      "Dewatering screw press splits organic pulp into solid and liquid",
+      "Liquid goes to sterilization / fermentation / biogas; solids to compost or digestion",
     ],
     imageSrc: {
-      cover: "/images/hero/banner-1.jpg",
+      cover: "/images/applications/organic-waste-before.jpg",
       gallery: [
-        "/images/products/combo-aio-main.png",
-        "/images/products/dewatering-main.png",
+        "/images/applications/organic-waste-after.jpg",
+        "/images/applications/food-waste-shredding-depackaging.jpg",
+        "/images/hero/banner-1.jpg",
+        "/images/applications/hm1000c.png",
       ],
     },
+    figures: [
+      {
+        src: "/images/applications/anaerobic-digestion-process.jpg",
+        caption: "Anaerobic digestion process after shredding and dewatering",
+      },
+      {
+        src: "/images/applications/depackaging-pulping-system.jpg",
+        caption: "Food-waste depackaging and pulping line",
+      },
+    ],
   },
-  // ③ Large Capacity Food Waste Composting System
   {
     slug: "large-capacity-food-waste-composting",
     name: "Large Capacity Food Waste Composting System",
+    group: "application",
     tagline:
-      "High-volume aerobic fermentation system for municipal, canteen and industrial-scale food waste.",
+      "7–10 t/hr bag-breaker, windrow composting and trommel screening for supermarket, factory and kerbside organics.",
     description: [
-      "For large-scale food waste treatment, TIMO provides a complete high-capacity composting system: pre-treatment line (shredding + dewatering) plus the XY-5000 food waste industrial composter with high-temperature aerobic microbial fermentation technology.",
-      "The system integrates biological engineering, mechanical and electrical engineering and environmental engineering. High-temperature aerobic microorganisms operate at 60 °C, effectively killing pathogens including African swine fever virus. Organic matter is fully transformed into stable humus (organic fertilizer) within 24 hours, with a reduction rate exceeding 85%.",
+      "TIMO’s large-capacity composting system handles supermarket leftovers, food-factory remains, door-to-door organics and expired packaged food at about 7–10 tons/hr. After processing, food/organic/kitchen waste becomes fertilizer; inorganics such as plastic bags, bottles, stone and cardboard are separated.",
+      "The line has three stages. Stage 1 — bag breaking: a SUS304 storing & feeding hopper (twin screws) → SUS304 chain-plate conveyor → bag breaker (counter-rotating drums tear bags without destroying the contents) → discharging conveyor (typical 1.6 m discharge height, customizable). A loader tips waste into the hopper; the bag breaker handles MSW fractions up to 300–400 mm, organics and mixed bagged material.",
+      "Stage 2 — aerobic composting: a self-propelled windrow turner with four wheels and an automatic liquid-spray device adds microbial strains while turning. Turning lowers pile temperature, adds oxygen and prevents poisonous gases — turning mixed waste into loose, dry fertilizer.",
+      "Stage 3 — fertilizer & packaging separation: a SUS304 auger hopper (over 5 m³) feeds a compost trommel (5–50 t/hr). Undersize fertilizer passes the screen onto a horizontal conveyor; oversize (bags, bottles, stone, cardboard) exits along the spiral guide rail. Enclosed, low-dust design; SUS304 screen.",
     ],
-    relatedProducts: [
-      "food-waste-composter",
-      "shredder-dewatering-combo",
-      "dewatering-screw-press",
-    ],
+    relatedProducts: ["industrial-shredder", "shredder-dewatering-combo"],
     process: [
-      "Large-volume waste collected and conveyed to pre-treatment line",
-      "Shredding & dewatering to prepare fermentation substrate",
-      "High-temperature aerobic fermentation in XY-5000 composter",
-      "Pathogens killed at sustained 60 °C operating temperature",
-      "Stable organic fertilizer output within 24 hours, reduction rate >85%",
+      "Loader tips waste into the automatic storing & feeding hopper; twin screws meter it onto the chain-plate conveyor",
+      "Bag breaker tears bags at high volume without damaging contents; discharge conveyor stacks mixed waste on the ground",
+      "Self-propelled compost turner windrows the mix, spraying microbial strains and adding oxygen",
+      "Dried, loosened fertilizer is loaded into the trommel feed hopper",
+      "Trommel screens fertilizer through; oversize inorganics exit the other end of the drum",
     ],
     imageSrc: {
-      cover: "/images/hero/composting-banner.jpg",
+      cover: "/images/applications/compost-turner.jpg",
       gallery: [
-        "/images/products/composter-xy5000.png",
-        "/images/products/composter-xy5000-2.png",
-        "/images/applications/food-organic-cover.jpg",
+        "/images/applications/bag-breaker-system.png",
+        "/images/applications/trommel-screen-system.png",
       ],
     },
+    figures: [
+      {
+        src: "/images/applications/bag-breaker-system.png",
+        caption: "Bag-breaker system: hopper → chain-plate conveyor → bag breaker → discharge",
+      },
+      {
+        src: "/images/applications/trommel-screen-system.png",
+        caption: "Trommel screen system: auger feed → rotating drum → fertilizer vs oversize outlets",
+      },
+    ],
   },
-  // ④ Food Waste Depackaging Machine
   {
     slug: "food-waste-depackaging",
     name: "Food Waste Depackaging Machine",
+    group: "separation",
     tagline:
-      "Destroy packaging and automatically separate food waste from packaging material.",
+      "One input, two outputs — recover organics at 90–97% purity and reject packaging.",
     description: [
-      "TIMO's integrated industrial shredder and dewatering squeezer HM series destroys packaging and separates packaging material from the food or liquid inside automatically. High efficiency and reliable operation saves time and labour compared to manual sorting.",
-      "The FDS series integrated shredder and grinder separator separates food/organic waste from mixed MSW or supermarket waste — mixed grocery waste, coffee pods, bakery waste, canned vegetables, bottled drinks, and more. 90–99% clean organic/food waste can be separated. The machine can also separate detergent from plastic packing with 88–95% purity.",
+      "A food-waste depackager separates organics from heterogeneous feedstock. One input; two outputs: the extract (food scraps / organics for composting or wet AD) and the reject (packaging). TIMO systems apply the least force needed to open packs without splintering them.",
+      "Accepted streams include mixed fruit & vegetable waste, supermarket waste, packaged produce, restaurant waste and expired daily food — beverage cartons and cans, wrappers, bags, styrofoam, yogurt pots, plastic bottles and jars, foil and cardboard. Recovery and purity typically sit in the 90–97% range, depending how much food remains on the packaging.",
+      "The HM series integrated shredder & dewatering squeezer destroys packaging and splits liquid from pack material. The FDS series shredder + grinder separator splits food/organic from mixed MSW or supermarket waste (coffee pods, bakery, canned vegetables, bottled drinks and more). Detergent can be separated from plastic packing at 88–95% purity.",
     ],
     relatedProducts: ["shredder-dewatering-combo", "dewatering-screw-press"],
     process: [
-      "Feed packaged food or MSW waste into hopper",
-      "Integrated shredder cuts waste to ~55×12 mm",
-      "Depacker/grinder separator separates organics from packaging",
-      "Organic pulp / liquid passes through screen",
-      "Packaging fraction discharged for RDF or recycling",
+      "Feed packaged food, SSO or mixed supermarket waste into the hopper",
+      "Separating paddles open packs with controlled force; optional water spray for sticky solids",
+      "Organics (extract) pass the drum screen as a clean organic flow",
+      "Packaging (reject) discharges for RDF or recycling",
+      "Liquid streams (beverages) can be split from bottles the same way",
     ],
     imageSrc: {
       cover: "/images/applications/depackaging-cover.jpg",
       gallery: [
         "/images/applications/depackaging-machine.png",
-        "/images/applications/depackaging-main.jpg",
+        "/images/applications/fds-depaker.png",
+        "/images/applications/mixed-supermarket-waste.jpg",
+        "/images/applications/bakery-waste.jpg",
       ],
     },
+    parts: [
+      { name: "Beverage cartons", image: "/images/applications/beverage-cartons.jpg" },
+      { name: "Canned food", image: "/images/applications/canned-food.jpg" },
+      { name: "Kerbside / SSO", image: "/images/applications/kerbside-waste.jpg" },
+      { name: "Restaurant waste", image: "/images/applications/restaurant-waste.jpg" },
+      { name: "Clean organic flow", image: "/images/applications/clean-organic-waste.jpg" },
+      { name: "Bakery waste", image: "/images/applications/bakery-waste.jpg" },
+    ],
+    figures: [
+      {
+        src: "/images/applications/depackaging-pulping-system.jpg",
+        caption: "Food-waste depackaging & pulping system",
+      },
+    ],
   },
-  // ⑤ Medical Waste
   {
     slug: "medical-waste",
     name: "Medical Waste",
+    group: "application",
     tagline:
-      "Universal & cabinet-type shredders for 50 kg to 10 t/hr medical waste processing.",
+      "Cabinet-type and industrial shredders — 50 kg/hr to 10 t/hr — plus a two-stage 2–3 t/hr recycling line.",
     description: [
-      "TIMO offers a full range of equipment to process medical waste. Slow-speed, high-torque shredders easily reduce the toughest medical-grade materials — from fabrics to glass, plastics and stainless steel instruments. After shredding, the material is ideal for thermal destruction or can be sterilised and disposed of with regular waste.",
-      "A two-stage shredding system provides a complete medical waste recycling line: autoclave sterilizer → 660L bin-lifter → primary shredder (60–200 mm) → conveyor → two-stage shredder (10–30 mm) → discharge auger conveyor. Capacity 2–3 t/hr.",
+      "TIMO offers a full range of medical-waste equipment. Slow-speed, high-torque shredders reduce fabrics, glass, plastics and stainless-steel instruments. After shredding, material is ready for thermal destruction, or it can be sterilized and disposed of with regular waste.",
+      "Two-stage recycling line (about 2–3 t/hr): autoclave sterilizer → 660L bin-lifter → primary shredder (60–200 mm) → conveyor → vertical two-stage two-shaft shredder (10–30 mm) → discharge auger to truck. The worker pulls the 660L bin from the autoclave, rolls it into the lifter, and the line runs from there.",
+      "Cabinet-type units take 0.6–0.7 m³ and roll on casters for pharmacies and clinics (pill bottles, syringes, blister packs). Industrial models from 200 kg/hr to 10 t/hr accept bag or autoclave-cart batch loading and render waste unrecognizable — volume down as much as 70% before landfill.",
     ],
     relatedProducts: [
       "medical-waste-shredder",
       "hospital-waste-shredder-sterilizer",
     ],
     process: [
-      "Medical waste placed into autoclave sterilizer for sterilization",
-      "660L bin-lifter tips sterilized waste into primary shredder (60–200 mm)",
-      "Conveyor belt carries primary shredded waste to two-stage shredder",
-      "Two-stage shredder reduces to final size 10–30 mm",
-      "Discharge auger conveyor to truck for landfill or further processing",
+      "Waste is sterilized in the autoclave chamber",
+      "660L bin is drawn out and rolled into the bin-lifter",
+      "Primary shredder reduces material to 60–200 mm",
+      "Conveyor feeds the vertical two-stage shredder (final 10–30 mm)",
+      "Discharge auger loads a truck for landfill or further recycling",
     ],
     imageSrc: {
       cover: "/images/applications/medical-waste-cover.jpg",
       gallery: [
-        "/images/products/hospital-as30.png",
-        "/images/products/medical-mw220.png",
-        "/images/applications/medical-waste-app.jpg",
+        "/images/applications/two-stage-medical-system.png",
+        "/images/applications/old-medical-waste.jpg",
+        "/images/applications/pharmacy-pill-bottle.jpg",
+        "/images/applications/medical-final-particles.png",
       ],
     },
+    parts: [
+      { name: "Autoclave sterilizer", image: "/images/applications/autoclave-sterilizer.png" },
+      { name: "Two-stage shredder line", image: "/images/applications/two-stage-medical-system.png" },
+      { name: "Normal medical waste", image: "/images/applications/old-medical-waste.jpg" },
+      { name: "Pharmacy pill bottles", image: "/images/applications/pharmacy-pill-bottle.jpg" },
+    ],
   },
-  // ⑥ Pulp & Paper Waste
   {
     slug: "pulp-paper-waste",
     name: "Pulp & Paper Waste",
+    group: "application",
     tagline:
-      "Shred ragger wire and dewater plastic reject from pulp & paper mills.",
+      "Shred ragger wire / pulper rejects and dewater plastic reject from paper mills.",
     description: [
-      "TIMO high-performance industrial paper shredders process waste paper, cardboard, and pulp waste. Low to mid-range speed, high-torque shredders provide effective, durable and reliable size reduction for all paper waste and pulper ropes.",
-      "Pulper ropes (ragger wire) consist of plastic films, tapes, labels, hemp rope, steel wires and other raw materials — compressed and extremely tough to shred. TIMO provides low-speed, high-torque shredders plus separators to recycle pulper ropes into valuable secondary steel wire and alternative fuel (plastic film, paper, tapes, labels).",
+      "TIMO industrial paper shredders process waste paper, cardboard and pulp waste. Low to mid-speed, high-torque machines give durable size reduction for paper waste and pulper ropes. Shredded material can become RDF or new products; in-feed/discharge conveyors and magnetic separation can be integrated.",
+      "Pulper ropes (ragger wire / pulper tail) are plastic films, tapes, labels, hemp rope and steel wire twisted into a compressed tail — about 45% steel and 55% post-consumer waste. They must be pulled from the pulper and are extremely tough to shred. Pulper rejects are simpler: films, paper, tapes and labels only.",
+      "With a low-speed high-torque shredder plus separator, ropes and rejects become secondary steel wire and alternative fuel (film, paper, tapes, labels). Cardboard can be almost 100% recycled; shredders deliver consistent cross-cut in a single pass for paper, tubes, webs and production waste.",
     ],
     relatedProducts: ["industrial-shredder", "dewatering-screw-press"],
     process: [
-      "Shred ragger wire / reject waste in low-speed high-torque shredder",
-      "Magnetic separation to recover steel wire",
-      "Dewater plastic reject fraction",
-      "Shredded material used as RDF or recycled material",
+      "Shred ragger wire or pulper reject in a low-speed, high-torque shredder",
+      "Magnetic separation recovers steel wire from pulper ropes",
+      "Dewater the plastic / film reject fraction",
+      "Shredded paper and film go to RDF or recycling",
     ],
     imageSrc: {
       cover: "/images/applications/pulp-paper-cover.jpg",
       gallery: [
+        "/images/applications/pulper-rejects.jpg",
+        "/images/applications/paper-cardboard-waste.jpg",
         "/images/applications/pulp-paper-main.jpg",
-        "/images/applications/pulp-paper-rope.jpg",
       ],
     },
   },
-  // ⑦ Slaughterhouse Waste
   {
     slug: "slaughterhouse-waste",
     name: "Slaughterhouse Waste",
+    group: "application",
     tagline:
-      "Shred poultry, bone, offal and whole dead animals for biogas and rendering.",
+      "AS2000 shreds poultry, bone, offal and whole cattle, horses or pigs in about 20 seconds.",
     description: [
-      "Slaughterhouse waste (abattoir waste) treatment is a major environmental challenge. TIMO provides size-reduction equipment capable of handling 2–25 t/day of slaughterhouse waste with a required particle size at output of 10–15 mm.",
-      "The dead animal shredder AS2000 is especially designed for whole carcasses of cattle, horses and pigs as well as offal and bones. AS2000 can process a whole cattle, horse or pig in 20 seconds. Capacity up to 7–10 t/hr. Special seals prevent contamination. Anaerobic digestion of this processed waste generates energy-rich biogas and reduces greenhouse gas emissions.",
+      "Slaughterhouse (abattoir) waste is a major environmental challenge. Beneficial routes include biogas, fertilizer and animal feed; anaerobic digestion yields energy-rich biogas and cuts greenhouse gases. Size reduction before pasteurization makes the process easier and more efficient.",
+      "TIMO shredders handle 2–25 t/day with 10–15 mm output. Special seals cope with bones and whole carcasses. AS2000 is built for complete cattle, horse and pig carcasses plus offal and bones, ahead of rendering. A whole animal in about 20 seconds; capacity 7–10 t/hr. It is installed as the first stage of a rendering plant, before crushers and mincers. Rotor and stator knives are hard-faced; motor size and shaft speed are matched to capacity.",
+      "Features include automatic reverse on overload, labyrinth + conventional bearing seals, a mesh cage around the base (three sides permanent, one door with safety switch), IP65 stainless cabinet, NSK tapered rollers, hexagonal shafts, a maintenance platform, and a W1200×L2600 mm hopper with W650×L2000 mm chamber — large enough for a whole carcass. 37 kW motor and high-strength cast sideboards.",
     ],
     relatedProducts: ["industrial-shredder"],
     process: [
-      "Feed animal by-products into shredder via hopper (W1200×L2600 mm)",
-      "Heavy-duty AS2000 shredder reduces whole carcasses in ~20 seconds",
-      "Mesh cage contains the shredding area for safety",
-      "10–15 mm output discharged for rendering, biogas or compost",
+      "Feed carcasses or by-products into the W1200×L2600 mm hopper",
+      "AS2000 reduces a whole cattle, horse or pig in about 20 seconds",
+      "Mesh cage and door safety switch keep the shredding area contained",
+      "10–15 mm output goes to rendering, biogas or compost",
     ],
     imageSrc: {
       cover: "/images/applications/slaughterhouse-cover.jpg",
       gallery: [
-        "/images/applications/slaughterhouse-main.jpg",
+        "/images/applications/slaughterhouse-waste.jpg",
+        "/images/applications/as2000-site.png",
         "/images/applications/slaughterhouse-cattle.jpg",
       ],
     },
+    parts: [
+      { name: "Mash cage", image: "/images/applications/as2000-mash-cage.png" },
+      { name: "Cutting chamber", image: "/images/applications/as2000-chamber.png" },
+    ],
   },
-  // ⑧ Municipal Waste
   {
     slug: "municipal-waste",
     name: "Municipal Waste",
+    group: "application",
     tagline:
-      "Two shaft, four shaft and RDF shredders for MSW size reduction — 0.3 to 50 t/hr.",
+      "Two-shaft, four-shaft and RDF shredders for MSW — 0.3 to 50 t/hr, 10–300 mm output.",
     description: [
-      "Municipal waste refers to solid waste generated in daily life. TIMO manufactures primary shredders, industrial two-shaft shredders, industrial four-shaft shredders and RDF shredders for municipal solid waste (MSW) size reduction — from 0.3 to 50 t/hr production capacity, and 10 mm to 300 mm final output size.",
-      "TIMO's two-shaft shredders are well-received for stable performance and low maintenance cost. Four-shaft shredders include an integrated sizing screen keeping materials in the shredding area until the desired size is reached, ensuring uniform final flakes.",
+      "Municipal waste is solid waste from daily life — recyclable, kitchen, harmful and other fractions. TIMO builds primary shredders, two-shaft and four-shaft industrial shredders, and RDF shredders for MSW: 0.3–50 t/hr and 10–300 mm final size. Cutters and surface treatment are matched to the material for wear life and throughput.",
+      "Two-shaft shredders are valued for stable performance and low maintenance. Four-shaft machines include an integrated sizing screen that keeps material in the chamber until it reaches the target size, so flakes are uniform. Double-motor two-shaft units are available where extra torque is needed.",
     ],
     relatedProducts: ["industrial-shredder", "vertical-hydraulic-baler"],
     process: [
-      "Feed municipal / domestic waste into primary shredder",
-      "Reduce to uniform pieces — 10–300 mm depending on application",
+      "Feed municipal / domestic waste into the primary shredder",
+      "Reduce to uniform pieces — 10–300 mm depending on the line",
       "Optional magnetic separation, RDF preparation or baling",
-      "Shredded material used as RDF fuel or landfill",
+      "Shredded material used as RDF or sent to landfill",
     ],
     imageSrc: {
       cover: "/images/applications/municipal-cover.jpg",
       gallery: [
+        "/images/applications/two-shaft-shredder.jpg",
+        "/images/applications/four-shaft-shredder.jpg",
         "/images/hero/two-shaft-banner.jpg",
-        "/images/products/shredder-hm1000.png",
       ],
     },
   },
@@ -243,4 +333,8 @@ export const applications: Application[] = [
 
 export function getApplication(slug: string) {
   return applications.find((a) => a.slug === slug);
+}
+
+export function applicationsByGroup(group: ApplicationGroup) {
+  return applications.filter((a) => a.group === group);
 }
