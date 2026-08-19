@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* 产品 */}
           <FooterCol title="Products">
-            {products.slice(0, 6).map((p) => (
+            {products.map((p) => (
               <FooterLink key={p.slug} href={`/products/${p.slug}`}>
                 {p.name.split("(")[0].trim()}
               </FooterLink>

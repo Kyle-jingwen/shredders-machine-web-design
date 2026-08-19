@@ -59,17 +59,17 @@ export default async function ProductDetailPage({
               />
             </div>
             {product.imageSrc.gallery.length > 0 && (
-              <div className="grid grid-cols-3 gap-3">
-                {product.imageSrc.gallery.slice(0, 6).map((g, i) => (
+              <div className="grid grid-cols-2 gap-3">
+                {product.imageSrc.gallery.map((g, i) => (
                   <div
                     key={i}
-                    className="relative aspect-square overflow-hidden rounded-xl bg-ink-800"
+                    className="relative aspect-[4/3] overflow-hidden rounded-xl bg-ink-800"
                   >
                     <Image
                       src={g}
                       alt={`${product.name} — gallery ${i + 1}`}
                       fill
-                      sizes="33vw"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-contain p-2"
                     />
                   </div>
@@ -122,6 +122,50 @@ export default async function ProductDetailPage({
             </div>
           </div>
         </div>
+
+        {product.howItWorks && product.howItWorks.length > 0 && (
+          <div className="mt-16">
+            <h2 className="font-display text-2xl font-bold text-white">
+              How it works
+            </h2>
+            <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {product.howItWorks.map((step, i) => (
+                <li
+                  key={i}
+                  className="surface flex gap-3 p-5"
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-500">
+                    {i + 1}
+                  </span>
+                  <span className="pt-0.5 text-sm leading-relaxed text-steel-300">
+                    {step}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
+        {product.figures && product.figures.length > 0 && (
+          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            {product.figures.map((fig) => (
+              <figure key={fig.src} className="overflow-hidden rounded-2xl border border-ink-700 bg-ink-800">
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={fig.src}
+                    alt={fig.caption}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-contain p-3"
+                  />
+                </div>
+                <figcaption className="border-t border-ink-700 px-4 py-3 text-sm text-steel-400">
+                  {fig.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
 
         {/* 特性 + 适用物料 */}
         <div className="mt-16 grid gap-8 lg:grid-cols-2">

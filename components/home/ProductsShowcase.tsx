@@ -5,7 +5,7 @@ import { ProductCard } from "@/components/cards/ProductCard";
 import { RevealStagger, RevealItem } from "@/components/ui/Reveal";
 
 export function ProductsShowcase() {
-  const featured = products.slice(0, 8);
+  const featured = products;
 
   return (
     <section className="container-x py-20 lg:py-28">
