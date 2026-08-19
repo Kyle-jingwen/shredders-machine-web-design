@@ -48,29 +48,29 @@ export default async function ProductDetailPage({
         <div className="grid gap-12 lg:grid-cols-2">
           {/* 左：图集 */}
           <div className="space-y-4">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink-800">
               <Image
                 src={product.imageSrc.cover}
                 alt={product.name}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain p-4"
                 priority
               />
             </div>
             {product.imageSrc.gallery.length > 0 && (
               <div className="grid grid-cols-3 gap-3">
-                {product.imageSrc.gallery.slice(0, 3).map((g, i) => (
+                {product.imageSrc.gallery.slice(0, 6).map((g, i) => (
                   <div
                     key={i}
-                    className="relative aspect-square overflow-hidden rounded-xl"
+                    className="relative aspect-square overflow-hidden rounded-xl bg-ink-800"
                   >
                     <Image
                       src={g}
                       alt={`${product.name} — gallery ${i + 1}`}
                       fill
                       sizes="33vw"
-                      className="object-cover"
+                      className="object-contain p-2"
                     />
                   </div>
                 ))}
@@ -189,13 +189,13 @@ function RelatedProducts({
               href={`/products/${p.slug}`}
               className="group surface overflow-hidden transition-all hover:-translate-y-1 hover:border-brand-500/50"
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden bg-ink-900">
                 <Image
                   src={p.imageSrc.cover}
                   alt={p.name}
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain p-3 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-5">

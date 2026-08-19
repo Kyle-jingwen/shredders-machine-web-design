@@ -21,7 +21,7 @@ export default function ApplicationsPage() {
       />
 
       <section className="container-x py-12 lg:py-16">
-        <RevealStagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {applications.map((application) => (
             <RevealItem key={application.slug}>
               <ApplicationCard application={application} />

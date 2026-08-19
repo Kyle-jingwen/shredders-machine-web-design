@@ -6,7 +6,7 @@ export function ApplicationCard({ application }: { application: Application }) {
   return (
     <Link
       href={`/applications/${application.slug}`}
-      className="group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-2xl border border-ink-700/80"
+      className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-2xl border border-ink-700/80 lg:min-h-[360px]"
     >
       <Image
         src={application.imageSrc.cover}

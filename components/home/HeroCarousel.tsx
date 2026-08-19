@@ -36,7 +36,7 @@ export function HeroCarousel() {
       onMouseLeave={() => setPaused(false)}
     >
       {/* 轮播高度：桌面 480px，移动端 360px */}
-      <div className="relative h-[360px] sm:h-[420px] lg:h-[480px]">
+      <div className="relative h-[380px] sm:h-[460px] lg:h-[560px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.image}
@@ -68,9 +68,9 @@ export function HeroCarousel() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -16 }}
               transition={{ duration: 0.45 }}
-              className="w-full max-w-xl rounded-lg border border-white/10 bg-black/55 px-6 py-6 backdrop-blur-sm sm:px-8 sm:py-8"
+              className="w-full max-w-2xl rounded-lg border border-white/10 bg-black/55 px-6 py-6 backdrop-blur-sm sm:px-8 sm:py-8 lg:px-10 lg:py-10"
             >
-              <h2 className="font-display text-xl font-bold leading-snug text-white sm:text-2xl lg:text-[1.65rem]">
+              <h2 className="font-display text-2xl font-bold leading-snug text-white sm:text-3xl lg:text-[2.1rem]">
                 {slide.title}
               </h2>
               <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-steel-200 sm:text-base">

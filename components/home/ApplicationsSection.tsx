@@ -18,7 +18,7 @@ export function ApplicationsSection() {
           description="Tailored shredding, separation and dewatering solutions for the industries that matter most."
         />
 
-        <RevealStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {applications.map((application) => (
             <RevealItem key={application.slug}>
               <ApplicationCard application={application} />

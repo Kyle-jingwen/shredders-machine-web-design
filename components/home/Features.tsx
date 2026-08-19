@@ -50,7 +50,7 @@ export function Features() {
       <RevealStagger className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-ink-700 bg-ink-700 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((f) => (
           <RevealItem key={f.title}>
-            <div className="group h-full bg-ink-900 p-7 transition-colors hover:bg-ink-800">
+            <div className="group h-full bg-ink-900 p-8 transition-colors hover:bg-ink-800">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/10 text-2xl text-brand-500 transition-colors group-hover:bg-brand-500 group-hover:text-white">
                 {f.icon}
               </div>
