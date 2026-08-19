@@ -42,8 +42,8 @@ export const applications: Application[] = [
     imageSrc: {
       cover: "/images/applications/food-organic-cover.jpg",
       gallery: [
-        "/images/applications/food-organic-app-1.jpg",
         "/images/hero/composting-banner.jpg",
+        "/images/products/composter-xy5000.png",
       ],
     },
   },
@@ -70,10 +70,10 @@ export const applications: Application[] = [
       "Liquid fraction collected for biogas or disposal",
     ],
     imageSrc: {
-      cover: "/images/applications/food-organic-app-1.jpg",
+      cover: "/images/hero/banner-1.jpg",
       gallery: [
-        "/images/applications/food-organic-cover.jpg",
-        "/images/hero/composting-banner.jpg",
+        "/images/products/combo-aio-main.png",
+        "/images/products/dewatering-main.png",
       ],
     },
   },
@@ -102,8 +102,9 @@ export const applications: Application[] = [
     imageSrc: {
       cover: "/images/hero/composting-banner.jpg",
       gallery: [
+        "/images/products/composter-xy5000.png",
+        "/images/products/composter-xy5000-2.png",
         "/images/applications/food-organic-cover.jpg",
-        "/images/applications/food-organic-app-1.jpg",
       ],
     },
   },
@@ -126,10 +127,10 @@ export const applications: Application[] = [
       "Packaging fraction discharged for RDF or recycling",
     ],
     imageSrc: {
-      cover: "/images/applications/depackaging-main.jpg",
+      cover: "/images/applications/depackaging-cover.jpg",
       gallery: [
+        "/images/applications/depackaging-machine.png",
         "/images/applications/depackaging-main.jpg",
-        "/images/applications/food-organic-cover.jpg",
       ],
     },
   },
@@ -157,9 +158,9 @@ export const applications: Application[] = [
     imageSrc: {
       cover: "/images/applications/medical-waste-cover.jpg",
       gallery: [
-        "/images/applications/medical-waste-app-1.jpg",
+        "/images/products/hospital-as30.png",
+        "/images/products/medical-mw220.png",
         "/images/applications/medical-waste-app.jpg",
-        "/images/products/medical-shredder-small.jpg",
       ],
     },
   },
@@ -185,7 +186,6 @@ export const applications: Application[] = [
       gallery: [
         "/images/applications/pulp-paper-main.jpg",
         "/images/applications/pulp-paper-rope.jpg",
-        "/images/applications/pulp-paper-app-1.jpg",
       ],
     },
   },
@@ -211,7 +211,6 @@ export const applications: Application[] = [
       gallery: [
         "/images/applications/slaughterhouse-main.jpg",
         "/images/applications/slaughterhouse-cattle.jpg",
-        "/images/applications/slaughterhouse-app-1.jpg",
       ],
     },
   },
@@ -235,8 +234,8 @@ export const applications: Application[] = [
     imageSrc: {
       cover: "/images/applications/municipal-cover.jpg",
       gallery: [
-        "/images/applications/municipal-waste.jpg",
-        "/images/applications/municipal-app-1.jpg",
+        "/images/hero/two-shaft-banner.jpg",
+        "/images/products/shredder-hm1000.png",
       ],
     },
   },

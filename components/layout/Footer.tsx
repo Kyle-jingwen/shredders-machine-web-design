@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/lib/site";
 import { products } from "@/lib/products";
 import { applications } from "@/lib/applications";
@@ -12,13 +13,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* 品牌区 */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500 font-display text-lg font-bold text-white">
-                T
-              </span>
-              <span className="font-display text-lg font-bold text-white">
-                {site.brand}
-              </span>
+            <Link href="/" className="inline-flex items-center" aria-label={`${site.brand} home`}>
+              <Image
+                src="/images/logo.png"
+                alt="TIMO Shredding & Dewatering"
+                width={200}
+                height={80}
+                className="h-14 w-auto sm:h-16"
+              />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-steel-400">
               {site.description}

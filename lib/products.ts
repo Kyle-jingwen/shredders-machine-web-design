@@ -79,12 +79,11 @@ export const products: Product[] = [
       { label: "Model series", value: "HM200 / HM800 / HM1000" },
     ],
     imageSrc: {
-      cover: "/images/products/combo-cover.jpg",
+      cover: "/images/products/combo-aio-main.png",
       gallery: [
-        "/images/products/combo-aio-main.png",
         "/images/products/combo-aio-hm1000.png",
         "/images/products/combo-aio-feature.png",
-        "/images/products/combo-layout-1.jpg",
+        "/images/hero/banner-1.jpg",
       ],
     },
   },
@@ -130,13 +129,12 @@ export const products: Product[] = [
       { label: "Model series", value: "HM600 / HM1000 / AS2000" },
     ],
     imageSrc: {
-      cover: "/images/products/shredder-cover.jpg",
+      cover: "/images/products/shredder-hm1000.png",
       gallery: [
-        "/images/products/shredder-hm1000.png",
         "/images/products/shredder-hm600.png",
         "/images/products/shredder-feature.png",
         "/images/products/shredder-cutting-chamber.png",
-        "/images/products/shredder-layout-1.jpg",
+        "/images/hero/two-shaft-banner.jpg",
       ],
     },
   },
@@ -175,11 +173,10 @@ export const products: Product[] = [
       { label: "Mode", value: "Continuous" },
     ],
     imageSrc: {
-      cover: "/images/products/dewatering-cover.jpg",
+      cover: "/images/products/dewatering-main.png",
       gallery: [
-        "/images/products/dewatering-main.jpg",
         "/images/products/dewatering-feature.png",
-        "/images/products/dewatering-layout-1.jpg",
+        "/images/products/combo-aio-feature.png",
       ],
     },
   },
@@ -210,10 +207,11 @@ export const products: Product[] = [
       { label: "Output", value: "Organic fertilizer" },
     ],
     imageSrc: {
-      cover: "/images/applications/food-organic-cover.jpg",
+      cover: "/images/products/composter-xy5000.png",
       gallery: [
-        "/images/applications/food-organic-app-1.jpg",
+        "/images/products/composter-xy5000-2.png",
         "/images/hero/composting-banner.jpg",
+        "/images/applications/food-organic-cover.jpg",
       ],
     },
   },
@@ -254,11 +252,10 @@ export const products: Product[] = [
       { label: "Industrial models", value: "HW300 / HW800 / HW1000" },
     ],
     imageSrc: {
-      cover: "/images/products/medical-shredder-cover.jpg",
+      cover: "/images/products/medical-mw220.png",
       gallery: [
         "/images/products/medical-shredder-small.jpg",
-        "/images/products/medical-layout-1.jpg",
-        "/images/applications/medical-waste-app.jpg",
+        "/images/applications/medical-waste-cover.jpg",
       ],
     },
   },
@@ -290,10 +287,10 @@ export const products: Product[] = [
       { label: "Volume reduction", value: "60–80% (steam) / 70% (disinfectant)" },
     ],
     imageSrc: {
-      cover: "/images/applications/medical-waste-cover.jpg",
+      cover: "/images/products/hospital-as30.png",
       gallery: [
-        "/images/applications/medical-waste-app-1.jpg",
-        "/images/applications/medical-waste-app.jpg",
+        "/images/products/hospital-as30-as75.png",
+        "/images/products/hospital-ps150-ps750.png",
       ],
     },
   },
@@ -325,7 +322,10 @@ export const products: Product[] = [
     ],
     imageSrc: {
       cover: "/images/products/glass-crusher.png",
-      gallery: ["/images/products/glass-crusher.png"],
+      gallery: [
+        "/images/products/glass-crusher-gb400.png",
+        "/images/products/glass-crusher-gb800.png",
+      ],
     },
   },
   {
@@ -362,11 +362,10 @@ export const products: Product[] = [
       { label: "Type", value: "Vertical hydraulic" },
     ],
     imageSrc: {
-      cover: "/images/products/baler-cover.jpg",
+      cover: "/images/products/baler-scene.png",
       gallery: [
         "/images/products/baler-pm500.jpg",
         "/images/products/baler-pm550.jpg",
-        "/images/products/baler-layout-1.jpg",
       ],
     },
   },
@@ -395,8 +394,8 @@ export const products: Product[] = [
       { label: "Feed", value: "Hand / conveyor / diesel mobile" },
     ],
     imageSrc: {
-      cover: "/images/products/eps-cover.jpg",
-      gallery: ["/images/products/eps-compactor.png", "/images/products/eps-layout-1.jpg"],
+      cover: "/images/products/eps-esp220.png",
+      gallery: ["/images/products/eps-compactor.png"],
     },
   },
   {
@@ -415,8 +414,13 @@ export const products: Product[] = [
     handles: ["Polyurethane (PUR) foam"],
     specs: [{ label: "Material", value: "Polyurethane foam" }],
     imageSrc: {
-      cover: "/images/products/pur-compactor.jpg",
-      gallery: ["/images/products/pur-compactor.jpg"],
+      cover: "/images/products/pur-ys360.png",
+      gallery: [
+        "/images/products/pur-compactor.png",
+        "/images/products/pur-compactor-2.png",
+        "/images/products/pur-process.png",
+        "/images/products/pur-compare.png",
+      ],
     },
   },
 ];

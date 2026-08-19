@@ -8,17 +8,17 @@ export function ProductCard({ product }: { product: Product }) {
       href={`/products/${product.slug}`}
       className="group surface flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/50 hover:shadow-2xl hover:shadow-black/40"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-ink-800">
+      <div className="relative aspect-[4/3] overflow-hidden bg-ink-950">
         <Image
           src={product.imageSrc.cover}
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-contain p-5 transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-6">
         <span className="text-xs font-semibold uppercase tracking-wider text-brand-500">
           {product.category}
         </span>

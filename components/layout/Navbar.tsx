@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -35,22 +36,19 @@ export function Navbar() {
           ? "border-b border-ink-700/60 bg-ink-950/85 backdrop-blur-md"
           : "border-b border-transparent bg-gradient-to-b from-ink-950/80 to-transparent"
       }`}
-      style={{ ["--nav-h" as string]: "72px" }}
+      style={{ ["--nav-h" as string]: "88px" }}
     >
-      <nav className="container-x flex h-[72px] items-center justify-between">
-        {/* Logo：阶段2用文字占位，阶段3回填 TIMO 官方Logo图片 */}
-        <Link href="/" className="group flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500 font-display text-lg font-bold text-white">
-            T
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-lg font-bold tracking-tight text-white">
-              {site.brand}
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-steel-400">
-              Shredding &amp; Dewatering
-            </span>
-          </span>
+      <nav className="container-x flex h-[88px] items-center justify-between">
+        {/* 沿用旧站 TIMO 官方 Logo（齿轮 O + 副标） */}
+        <Link href="/" className="group flex shrink-0 items-center" aria-label={`${site.brand} home`}>
+          <Image
+            src="/images/logo.png"
+            alt="TIMO Shredding & Dewatering"
+            width={200}
+            height={80}
+            priority
+            className="h-14 w-auto sm:h-16 lg:h-[68px]"
+          />
         </Link>
 
         {/* 桌面导航 */}
@@ -177,7 +175,7 @@ function DesktopNavItem({ item, active }: { item: NavItem; active: boolean }) {
       <li>
         <Link
           href={item.href}
-          className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+          className={`relative px-3 py-2 text-sm font-medium transition-colors xl:px-4 ${
             active ? "text-white" : "text-steel-400 hover:text-white"
           }`}
         >
@@ -198,7 +196,7 @@ function DesktopNavItem({ item, active }: { item: NavItem; active: boolean }) {
     >
       <Link
         href={item.href}
-        className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+        className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors xl:px-4 ${
           active ? "text-white" : "text-steel-400 hover:text-white"
         }`}
       >

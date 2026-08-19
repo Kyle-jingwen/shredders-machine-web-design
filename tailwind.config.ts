@@ -43,7 +43,7 @@ const config: Config = {
         display: ["var(--font-display)", "var(--font-inter)", "sans-serif"],
       },
       maxWidth: {
-        container: "1280px",
+        container: "1680px",
       },
       backgroundImage: {
         "grid-lines":

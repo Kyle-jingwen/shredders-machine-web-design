@@ -61,12 +61,12 @@ export default async function ApplicationDetailPage({
                 priority
               />
             </div>
-            {application.imageSrc.gallery.length > 1 && (
+            {application.imageSrc.gallery.length > 0 && (
               <div className="mt-4 grid grid-cols-3 gap-3">
-                {application.imageSrc.gallery.slice(1, 4).map((g, i) => (
+                {application.imageSrc.gallery.slice(0, 6).map((g, i) => (
                   <div
                     key={i}
-                    className="relative aspect-square overflow-hidden rounded-xl"
+                    className="relative aspect-square overflow-hidden rounded-xl bg-ink-800"
                   >
                     <Image
                       src={g}
@@ -129,13 +129,13 @@ export default async function ApplicationDetailPage({
                     href={`/products/${p.slug}`}
                     className="group surface flex h-full overflow-hidden transition-all hover:-translate-y-1 hover:border-brand-500/50"
                   >
-                    <div className="relative w-2/5 shrink-0">
+                    <div className="relative w-2/5 shrink-0 bg-ink-900">
                       <Image
                         src={p.imageSrc.cover}
                         alt={p.name}
                         fill
                         sizes="20vw"
-                        className="object-cover"
+                        className="object-contain p-2"
                       />
                     </div>
                     <div className="flex flex-col p-4">
