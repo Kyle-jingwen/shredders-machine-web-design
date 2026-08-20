@@ -14,6 +14,9 @@ export const site = {
     email: "info@shredding-machine.com",
     address:
       "No.1-3, Junfa Street, Yangguang Road, Mingzhong Village, Zhongshan City, China.",
+    // Google 没有「1-3号」门牌 POI；针点落在民众阳光大道 / 骏发街一带（大骏布业城路口）
+    mapsLat: 22.618598,
+    mapsLng: 113.475053,
     // WhatsApp：+86-13435753318（wa.me 需纯数字含国家码，去掉 + 与连字符）
     whatsapp: "8613435753318",
     whatsappDisplay: "+86 134 3575 3318",

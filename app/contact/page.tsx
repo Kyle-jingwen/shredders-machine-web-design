@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
+
+const mapsPin = `${site.contact.mapsLat},${site.contact.mapsLng}`;
+const mapsEmbedSrc = `https://maps.google.com/maps?q=${mapsPin}&hl=en&z=18&t=h&output=embed`;
+const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapsPin}`;
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -36,7 +39,14 @@ export default function ContactPage() {
               </InfoRow>
 
               <InfoRow icon="⚲" title="Address">
-                {site.contact.address}
+                <a
+                  href={mapsDirectionsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-brand-500"
+                >
+                  {site.contact.address}
+                </a>
               </InfoRow>
 
               <InfoRow icon="✆" title="WhatsApp">
@@ -61,12 +71,26 @@ export default function ContactPage() {
                 </a>
               </InfoRow>
 
-              {/* 阶段3回填：谷歌地图嵌入 / 工厂位置图 */}
-              <div className="pt-2">
-                <Placeholder
-                  label="工厂位置地图（阶段3嵌入 Google Maps iframe，定位中山市地址）"
-                  ratio="16/9"
-                />
+              <div className="overflow-hidden rounded-2xl border border-ink-700">
+                <div className="relative aspect-[16/9]">
+                  <iframe
+                    title="TIMO factory location"
+                    src={mapsEmbedSrc}
+                    className="absolute inset-0 h-full w-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
+                <a
+                  href={mapsDirectionsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between bg-ink-900 px-4 py-3 text-sm text-steel-300 transition hover:text-brand-500"
+                >
+                  Open in Google Maps for directions
+                  <span aria-hidden>→</span>
+                </a>
               </div>
             </div>
           </Reveal>
