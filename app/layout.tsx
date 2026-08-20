@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LiveChat } from "@/components/layout/LiveChat";
 import { site } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
         <main className="pt-[var(--nav-h,88px)]">{children}</main>
         <Footer />
         <LiveChat />
+        <Analytics />
       </body>
     </html>
   );
