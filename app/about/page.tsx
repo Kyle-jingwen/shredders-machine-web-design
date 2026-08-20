@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
 
@@ -50,11 +50,16 @@ export default function AboutPage() {
       <section className="container-x py-14 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            {/* 阶段3回填：公司/工厂/车间图 */}
-            <Placeholder
-              label="公司/工厂/生产车间实拍图（如有可用 Home 系列或车间照片）"
-              ratio="4/3"
-            />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink-800">
+              <Image
+                src="/images/about.jpg"
+                alt="TIMO shredding and dewatering line in workshop"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
           </Reveal>
           <div>
             <SectionHeading

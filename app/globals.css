@@ -67,15 +67,4 @@
     @apply rounded-2xl border border-ink-700/80 bg-ink-800/70 backdrop-blur-sm;
   }
 
-  /* 占位骨架块（阶段2专用，阶段3将替换为真实图片） */
-  .placeholder-media {
-    @apply relative flex items-center justify-center overflow-hidden rounded-2xl border border-dashed border-ink-600 bg-ink-800 text-center;
-    background-image: repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 12px,
-      transparent 12px,
-      transparent 24px
-    );
-  }
 }
