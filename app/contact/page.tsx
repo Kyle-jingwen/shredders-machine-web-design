@@ -4,9 +4,9 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 
-const mapsPin = `${site.contact.mapsLat},${site.contact.mapsLng}`;
-const mapsEmbedSrc = `https://maps.google.com/maps?q=${mapsPin}&hl=en&z=18&t=h&output=embed`;
-const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapsPin}`;
+const mapsQuery = encodeURIComponent(site.contact.mapsQuery);
+const mapsEmbedSrc = `https://maps.google.com/maps?q=${mapsQuery}&z=19&t=h&hl=en&output=embed`;
+const mapsDirectionsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -47,6 +47,9 @@ export default function ContactPage() {
                 >
                   {site.contact.address}
                 </a>
+                <p className="mt-1 text-xs text-steel-400">
+                  {site.contact.addressZh}
+                </p>
               </InfoRow>
 
               <InfoRow icon="✆" title="WhatsApp">
