@@ -13,13 +13,15 @@ export const site = {
     // 沿用旧邮箱（阶段1确认）
     email: "info@shredding-machine.com",
     address:
-      "No.1-3, Junfa Street, Yangguang Road, Mingzhong Village, Zhongshan City, China.",
-    // Google 没有「1-3号」门牌 POI；针点落在民众阳光大道 / 骏发街一带（大骏布业城路口）
-    mapsLat: 22.618598,
-    mapsLng: 113.475053,
+      "No.1 Junfa Street, Steel-structure Workshop Unit 3, Langwang Village, Minzhong Subdistrict, Zhongshan, Guangdong, China",
+    addressZh:
+      "广东省中山市民众街道浪网行政村骏发街1号钢结构厂房3卡",
+    // Google 商家点在厂房上；Plus code JF8G+GXC 会落在骏发街路面
+    mapsQuery: "Zhongshan Kaihua Luying Tent Limited Company",
     // WhatsApp：+86-13435753318（wa.me 需纯数字含国家码，去掉 + 与连字符）
     whatsapp: "8613435753318",
     whatsappDisplay: "+86 134 3575 3318",
+    wechat: "13435753318",
   },
 
   social: {
