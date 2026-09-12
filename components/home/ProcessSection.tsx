@@ -1,6 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
+import { ProcessFlowchart } from "./ProcessFlowchart";
 
 const steps = [
   {
@@ -29,7 +29,7 @@ export function ProcessSection() {
   return (
     <section className="relative border-t border-ink-800 bg-ink-900/40">
       <div className="container-x py-20 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-12 xl:grid-cols-[0.9fr_1.1fr] xl:items-center">
           <div>
             <SectionHeading
               eyebrow="How It Works"
@@ -62,11 +62,7 @@ export function ProcessSection() {
           </div>
 
           <Reveal from="left">
-            {/* 阶段3回填：整线/系统流程示意图 */}
-            <Placeholder
-              label="组合破碎脱水系统流程图（推荐用 Combination-Shredding-Systems / 整线现场图）"
-              ratio="4/3"
-            />
+            <ProcessFlowchart />
           </Reveal>
         </div>
       </div>

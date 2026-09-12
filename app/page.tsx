@@ -1,3 +1,4 @@
+import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { Hero } from "@/components/home/Hero";
 import { ProductsShowcase } from "@/components/home/ProductsShowcase";
 import { ApplicationsSection } from "@/components/home/ApplicationsSection";
@@ -8,6 +9,7 @@ import { CtaSection } from "@/components/home/CtaSection";
 export default function HomePage() {
   return (
     <>
+      <HeroCarousel />
       <Hero />
       <ProductsShowcase />
       <ApplicationsSection />

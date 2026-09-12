@@ -39,7 +39,7 @@ export function ProductExplorer() {
   return (
     <div className="container-x py-12 lg:py-16">
       {/* 搜索框 */}
-      <div className="mx-auto mb-8 max-w-xl">
+      <div className="mx-auto mb-8 max-w-3xl">
         <div className="relative">
           <svg
             className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-steel-400"
@@ -92,13 +92,14 @@ export function ProductExplorer() {
       {filtered.length > 0 ? (
         <motion.div
           layout
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((product) => (
               <motion.div
                 key={product.slug}
                 layout
+                className="h-full"
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}

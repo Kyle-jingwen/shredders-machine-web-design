@@ -15,10 +15,10 @@ export function ApplicationsSection() {
               One platform, <span className="text-brand-500">many waste streams</span>
             </>
           }
-          description="Tailored shredding, separation and dewatering solutions for the industries that matter most."
+          description="Shredding, dewatering, depackaging and composting lines for food, medical, paper, slaughterhouse and municipal waste."
         />
 
-        <RevealStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {applications.map((application) => (
             <RevealItem key={application.slug}>
               <ApplicationCard application={application} />

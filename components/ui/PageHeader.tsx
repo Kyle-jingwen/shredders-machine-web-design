@@ -20,7 +20,7 @@ export function PageHeader({
       <div className="pointer-events-none absolute inset-0 bg-grid-lines [background-size:44px_44px] opacity-40" />
       <div className="pointer-events-none absolute inset-0 bg-brand-glow" />
 
-      <div className="container-x relative py-14 lg:py-20">
+      <div className="container-x relative py-16 lg:py-24">
         {breadcrumbs && (
           <nav className="mb-5 flex flex-wrap items-center gap-2 text-xs text-steel-400">
             {breadcrumbs.map((c, i) => (
@@ -45,11 +45,11 @@ export function PageHeader({
               {eyebrow}
             </span>
           )}
-          <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl">
+          <h1 className="max-w-5xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-steel-400">
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-steel-400 sm:text-lg">
               {description}
             </p>
           )}
