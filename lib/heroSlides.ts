@@ -15,6 +15,9 @@ export const heroSlides: HeroSlide[] = [
     title: "Shredder & Dewatering Combined Machine",
     description:
       "This unit features an industrial shredder mounted on top and a dewatering screw‑press located at the bottom. It shreds and dewaters organic and kitchen waste to prepare feedstock for compost and fertilizer production.",
+    title: "Integrated Industrial Shredder And Dewatering Squeezer Machine",
+    description:
+      "The machine integrated industrial shredder with dewatering squeezer in one machine which can shredding, depacking, dewatering the organic/food/kitchen waste for preparing to make compost or fertilizer.",
     href: "/products/shredder-dewatering-combo",
     cta: "View Product",
     image: "/images/hero/banner-1.jpg",
@@ -23,6 +26,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Food/Kitchen/Organic Waste Convert To Fertilizer System",
     description:
       "This food‑waste composting system converts food and organic waste into fertilizer within a 24‑hour aerobic fermentation cycle. It features a pre‑treatment unit (bin lifter, manual sorting table, industrial shredder, screw‑press dewatering machine and auger conveyors) and an aerobic fermentation composter with degrading compost bacteria.",
+      "The system including stored ground hopper, conveyor, integrated shredder and dewatering squeezer machine, fermenter, deodorization system which can convert food/kitchen/organic waste to fertilizer in 24 hours.",
     href: "/applications/organic-food-waste",
     cta: "Explore Solution",
     image: "/images/hero/banner-2.jpg",

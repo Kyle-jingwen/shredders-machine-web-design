@@ -159,6 +159,15 @@ export default async function ProductDetailPage({
             <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {product.howItWorks.map((step, i) => (
                 <li key={i} className="surface flex gap-3 p-5">
+            <h2 className="font-display text-2xl font-bold text-white">
+              How it works
+            </h2>
+            <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {product.howItWorks.map((step, i) => (
+                <li
+                  key={i}
+                  className="surface flex gap-3 p-5"
+                >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-500/15 text-sm font-bold text-brand-500">
                     {i + 1}
                   </span>
@@ -178,6 +187,7 @@ export default async function ProductDetailPage({
                 key={fig.src}
                 className="overflow-hidden rounded-2xl border border-ink-700 bg-ink-800"
               >
+              <figure key={fig.src} className="overflow-hidden rounded-2xl border border-ink-700 bg-ink-800">
                 <div className="relative aspect-[16/10]">
                   <Image
                     src={fig.src}

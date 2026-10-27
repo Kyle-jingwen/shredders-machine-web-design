@@ -114,6 +114,9 @@ export default async function ApplicationDetailPage({
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-steel-400">
               Each stage has a clear job, so the line is easier to specify, operate and expand.
             </p>
+            <h2 className="font-display text-2xl font-bold text-white">
+              Process flow
+            </h2>
             <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {application.process.map((step, i) => (
                 <li key={i} className="surface flex gap-3 p-5">
@@ -140,6 +143,9 @@ export default async function ApplicationDetailPage({
                 ? "Examples of the materials and packaging conditions this solution is designed to work with."
                 : "The main equipment blocks that make up this application-ready line."}
             </p>
+            <h2 className="font-display text-2xl font-bold text-white">
+              {application.group === "separation" ? "Typical feedstocks" : "Line equipment"}
+            </h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {application.parts.map((part) => (
                 <figure
