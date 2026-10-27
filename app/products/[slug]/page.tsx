@@ -45,7 +45,7 @@ export default async function ProductDetailPage({
       />
 
       <section className="container-x py-14 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
           {/* 左：图集 */}
           <div className="space-y-4">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink-800">
@@ -79,22 +79,46 @@ export default async function ProductDetailPage({
           </div>
 
           {/* 右：正文 */}
-          <div>
+          <div className="lg:pt-2">
             <Reveal>
+              <div className="mb-7 border-l-2 border-brand-500 pl-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-400">
+                  Built for continuous processing
+                </p>
+                <p className="mt-2 text-lg leading-relaxed text-steel-200">
+                  {product.tagline}
+                </p>
+              </div>
               <div className="space-y-4">
                 {product.description.map((p, i) => (
-                  <p key={i} className="text-base leading-relaxed text-steel-300">
+                  <p key={i} className="text-[15px] leading-7 text-steel-300">
                     {p}
                   </p>
                 ))}
               </div>
             </Reveal>
 
+            <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-ink-700 bg-ink-700">
+              {product.specs.slice(0, 4).map((s) => (
+                <div key={s.label} className="bg-ink-800/95 px-4 py-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-steel-400">
+                    {s.label}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold leading-5 text-white">
+                    {s.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             {/* 规格亮点 */}
             <div className="mt-8 overflow-hidden rounded-2xl border border-ink-700">
-              <div className="border-b border-ink-700 bg-ink-800 px-5 py-3">
-                <h3 className="font-display text-sm font-bold uppercase tracking-wider text-white">
-                  Specifications
+              <div className="border-b border-ink-700 bg-ink-800 px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-400">
+                  Technical details
+                </p>
+                <h3 className="mt-1 font-display text-lg font-bold text-white">
+                  Sized around your material and throughput
                 </h3>
               </div>
               <dl className="divide-y divide-ink-800">
@@ -125,6 +149,16 @@ export default async function ProductDetailPage({
 
         {product.howItWorks && product.howItWorks.length > 0 && (
           <div className="mt-16">
+            <p className="eyebrow">Inside the process</p>
+            <h2 className="mt-2 font-display text-2xl font-bold text-white">
+              How it works
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-steel-400">
+              A straightforward sequence designed to keep material moving and maintenance simple.
+            </p>
+            <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {product.howItWorks.map((step, i) => (
+                <li key={i} className="surface flex gap-3 p-5">
             <h2 className="font-display text-2xl font-bold text-white">
               How it works
             </h2>
@@ -149,6 +183,10 @@ export default async function ProductDetailPage({
         {product.figures && product.figures.length > 0 && (
           <div className="mt-16 grid gap-6 lg:grid-cols-2">
             {product.figures.map((fig) => (
+              <figure
+                key={fig.src}
+                className="overflow-hidden rounded-2xl border border-ink-700 bg-ink-800"
+              >
               <figure key={fig.src} className="overflow-hidden rounded-2xl border border-ink-700 bg-ink-800">
                 <div className="relative aspect-[16/10]">
                   <Image
@@ -169,8 +207,9 @@ export default async function ProductDetailPage({
 
         {/* 特性 + 适用物料 */}
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
-          <div className="surface p-7">
-            <h3 className="font-display text-lg font-bold text-white">
+          <div className="surface p-7 lg:p-8">
+            <p className="eyebrow">Why it works</p>
+            <h3 className="mt-2 font-display text-2xl font-bold text-white">
               Key features
             </h3>
             <ul className="mt-4 space-y-3">
@@ -183,11 +222,12 @@ export default async function ProductDetailPage({
             </ul>
           </div>
 
-          <div className="surface p-7">
-            <h3 className="font-display text-lg font-bold text-white">
-              Handles
+          <div className="surface p-7 lg:p-8">
+            <p className="eyebrow">Made for your feedstock</p>
+            <h3 className="mt-2 font-display text-2xl font-bold text-white">
+              Typical materials
             </h3>
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {product.handles.map((h) => (
                 <span
                   key={h}

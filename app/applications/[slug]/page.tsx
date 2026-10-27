@@ -82,9 +82,17 @@ export default async function ApplicationDetailPage({
           </Reveal>
 
           <Reveal from="left">
-            <div className="space-y-4">
+            <div className="border-l-2 border-brand-500 pl-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-400">
+                A line built around your waste stream
+              </p>
+              <p className="mt-2 text-lg leading-relaxed text-steel-200">
+                {application.tagline}
+              </p>
+            </div>
+            <div className="mt-7 space-y-4">
               {application.description.map((p, i) => (
-                <p key={i} className="text-base leading-relaxed text-steel-300">
+                <p key={i} className="text-[15px] leading-7 text-steel-300">
                   {p}
                 </p>
               ))}
@@ -99,6 +107,13 @@ export default async function ApplicationDetailPage({
 
         {application.process.length > 0 && (
           <div className="mt-16">
+            <p className="eyebrow">From feedstock to useful output</p>
+            <h2 className="mt-2 font-display text-2xl font-bold text-white">
+              Process flow
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-steel-400">
+              Each stage has a clear job, so the line is easier to specify, operate and expand.
+            </p>
             <h2 className="font-display text-2xl font-bold text-white">
               Process flow
             </h2>
@@ -119,6 +134,15 @@ export default async function ApplicationDetailPage({
 
         {application.parts && application.parts.length > 0 && (
           <div className="mt-16">
+            <p className="eyebrow">What the line handles</p>
+            <h2 className="mt-2 font-display text-2xl font-bold text-white">
+              {application.group === "separation" ? "Typical feedstocks" : "Line equipment"}
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-steel-400">
+              {application.group === "separation"
+                ? "Examples of the materials and packaging conditions this solution is designed to work with."
+                : "The main equipment blocks that make up this application-ready line."}
+            </p>
             <h2 className="font-display text-2xl font-bold text-white">
               {application.group === "separation" ? "Typical feedstocks" : "Line equipment"}
             </h2>
