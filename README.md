@@ -11,7 +11,7 @@
 
 ## 环境要求
 
-> Node.js ≥ 18.18（推荐 Node 20 LTS）。
+> Node.js 24（Vercel 构建要求 `engines.node` 为 `24.x`）。本地开发可用 Node 20+。
 
 ## 本地开发
 

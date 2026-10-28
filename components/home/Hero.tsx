@@ -75,7 +75,7 @@ export function Hero() {
           >
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/process/combination-line.jpg"
+                src="/images/process/combination-line-site.jpg"
                 alt="TIMO combination shredding and dewatering system"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
